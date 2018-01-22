@@ -1,0 +1,14 @@
+
+canvas {
+  /*background-image: url("images/avello.jpg");*/
+  margin-top:120px;
+  margin-left:550px;
+  background-position: center;
+  background-size: 10%;
+  background-color:white;
+}
+body{
+  /*background-image: url("images/avello2.jpg");*/
+  background-position: center;
+background-image: url("https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/wiiu_download_software_5/H2x1_WiiUDS_BrickBreaker.jpg");
+}
