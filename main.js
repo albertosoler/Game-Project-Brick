@@ -69,9 +69,10 @@ else if(y + dy > canvas.height - barra.paddleHeight) {
         dy = -dy;
     }
     else if(y > canvas.height ){
+      
        document.location.reload();
     }
-}
+}//haha
 
   if(barra.rightPressed && barra.paddleX < canvas.width-barra.paddleWidth) {
     barra.paddleX += 10;
