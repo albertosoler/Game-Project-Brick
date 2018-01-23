@@ -1,15 +1,26 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var barra = new createBarra();
-
+var bola = new createBall();
+var brick = new createLadrillos();
 window.onload = function(){
+  document.getElementById("btn-start").onclick = function (){
+    startGame();
+  }
+
+
+      
+   
+  
+
+   
+  
+    
+    
+  
 
 
   
-  var x = canvas.width / 2;
-  var y = canvas.height - 20;
-  var dx = 5;
-  var dy = -5;
 
   document.addEventListener("keydown", keyDownHandler);
   document.addEventListener("keyup", keyUpHandler);
@@ -43,36 +54,36 @@ window.onload = function(){
     }
 }
 
-function drawBall() {
-  var img = new Image();
-  img.src = "images/descarga.png";
-  ctx.drawImage(img, x, y, 10, 10);
-}
 
 function draw(e) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBall();
+  brick.drawLadrillos();
+  bola.drawBall();
   barra.drawBarra();
+  brick.Colision();
  
 
 
 
-  if (x + dx > canvas.width || x + dx < 0) {
-    dx = -dx;
+  if (bola.x + bola.dx > canvas.width || bola.x + bola.dx < 0) {
+    bola.dx = -bola.dx;
   }
-  if(y + dy < 0) {
-    dy = -dy;
+  else if(bola.y +bola.dy < 0) {
+    bola.dy = -bola.dy;
 }
-else if(y + dy > canvas.height - barra.paddleHeight) {
+  else if(bola.y + bola.dy > canvas.height - barra.paddleHeight) {
 
-    if(x > barra.paddleX && x < barra.paddleX + barra.paddleWidth) {
-        dy = -dy;
+    if(bola.x > barra.paddleX && bola.x < barra.paddleX + barra.paddleWidth) {
+        bola.dy = -bola.dy;
     }
-    else if(y > canvas.height ){
+    else if(bola.y -10> canvas.height +10 ){
+
+      window.location.reload(true);
       
-       document.location.reload();
-    }
-}//haha
+      
+      
+    }  
+}
 
   if(barra.rightPressed && barra.paddleX < canvas.width-barra.paddleWidth) {
     barra.paddleX += 10;
@@ -81,8 +92,8 @@ else if(y + dy > canvas.height - barra.paddleHeight) {
     barra.paddleX -= 10;
   }
 
-  x += dx;
-  y += dy;
+  bola.x += bola.dx;
+  bola.y += bola.dy;
 
 }
   
@@ -91,17 +102,17 @@ else if(y + dy > canvas.height - barra.paddleHeight) {
 function startGame(){
 setInterval(draw,1000/60)
 }
-startGame();
 
+
+
+  
+
+  
+
+ 
+
+  
+ 
+  
+ 
 };
-  
-
-  
-
- 
-
-  
- 
-  
- 
-

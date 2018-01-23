@@ -9,12 +9,14 @@ function createBarra(){
 createBarra.prototype.drawBarra= function(){
 
         ctx.beginPath();
-        ctx.rect(this.paddleX , canvas.height-this.paddleHeight , this.paddleWidth, this.paddleHeight);
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
+        var img = new Image()  
+        img.src = "images/front.png";
+        ctx.drawImage(img, this.paddleX , canvas.height-this.paddleHeight , this.paddleWidth, this.paddleHeight);
+        //ctx.rect(this.paddleX , canvas.height-this.paddleHeight , this.paddleWidth, this.paddleHeight);
+        //ctx.fillStyle = "#0095DD";
+        //ctx.fill();
         ctx.closePath();
     }
-
-
+    
    
 
