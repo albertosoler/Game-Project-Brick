@@ -7,6 +7,7 @@ canvas {
   background-size: 10%;
   background-color:white;
 }
+
 body{
  
   /*background-image: url("images/avello2.jpg");*/
@@ -24,13 +25,12 @@ body{
   font-family: cursive;
   background-color: black
 }
-#btn-lvl{
+#btn-reset{
   color:white;
   font-family: cursive;
   background: black;
 
 }
-
 
 .text-des{
   width: 1400px;

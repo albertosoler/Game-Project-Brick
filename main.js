@@ -4,55 +4,14 @@ var barra = new createBarra();
 var bola = new createBall();
 var brick = new createLadrillos();
 window.onload = function(){
+  document.getElementById("btn-reset").onclick = function (){
+    bola.dx *=1.2;
+    bola.dy *=1.2;
+  }
   document.getElementById("btn-start").onclick = function (){
     startGame();
   }
 
-
-      
-   
-  
-
-   
-  
-    
-    
-  
-
-
-  
-
-  document.addEventListener("keydown", keyDownHandler);
-  document.addEventListener("keyup", keyUpHandler);
-
-  function keyDownHandler(e) {
-    if(e.keyCode == 39) {
-        barra.rightPressed = true;
-        
-        
-    }
-    else if(e.keyCode == 37) {
-        barra.leftPressed = true;
-        
-        
-        
-    }
-}
-  function keyUpHandler(e) {
-    if(e.keyCode == 39) {
-      
-      barra.rightPressed = false;
-        
-    }
-    else if(e.keyCode == 37) {
-        
-       barra.leftPressed = false;
-       
-        
-                
-
-    }
-}
 
 
 function draw(e) {
@@ -76,9 +35,10 @@ function draw(e) {
     if(bola.x > barra.paddleX && bola.x < barra.paddleX + barra.paddleWidth) {
         bola.dy = -bola.dy;
     }
-    else if(bola.y -10> canvas.height +10 ){
+    else if(bola.y> canvas.height+5 ){
+      alert("Game Over");
 
-      window.location.reload(true);
+      window.location.reload();
       
       
       
