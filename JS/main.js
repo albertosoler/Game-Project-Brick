@@ -4,10 +4,9 @@ var barra = new createBarra();
 var bola = new createBall();
 var brick = new createLadrillos();
 window.onload = function(){
-  document.getElementById("btn-reset").onclick = function (){
-  }
   document.getElementById("btn-start").onclick = function (){
     startGame();
+    document.getElementById('canvas').style.display = 'block';
   }
 
 function draw(e) {
@@ -20,6 +19,7 @@ function draw(e) {
   bola.rebotePaddle();
   barra.moveBarra();
   bola.gameOver();
+  drawScore();
 
   
 }

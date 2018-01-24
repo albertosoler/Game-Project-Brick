@@ -1,19 +1,21 @@
 
 canvas {
-  /*background-image: url("images/avello.jpg");*/
+  /*background-image: url("images/fondo2.gif");*/
   margin-top:40px;
-  margin-bottom: 30px;
+  margin-bottom: 120px;
   margin-left:500px;
   background-position: center;
-  background-size: 10%;
+  background-size: 140%;
   background-color:white;
+  display:none;
+  border: solid 2px greenyellow;
 }
 
 body{
  
   /*background-image: url("images/avello2.jpg");*/
-  /*background-size: 10%;*/
-  background-image: url("https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/wiiu_download_software_5/H2x1_WiiUDS_BrickBreaker.jpg");
+  background-size: 110%;
+  background-image: url("images/fondo2.jpg");
 }
 #elements
 {margin-left: 10px;
@@ -22,9 +24,15 @@ body{
   
 }
 #btn-start{
-  color:white;
-  font-family: cursive;
-  background-color: black
+  color:#296410;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color:yellow;
+  border-radius: 5px;
+  padding: 10px;
+  left: 700px;
+  top: 700px;
+  position: absolute;
+
 }
 #btn-reset{
   color:white;

@@ -12,6 +12,8 @@ function createLadrillos(){
     this.brickY;
     this.bricks = [];
     this.score = 0;
+    this.lvl=0;
+    this.audio=new Audio("audio/golpe.mp3");
 //Recorrer el array Bidimiensional;
    for(c=0; c<this.brickColumnCount; c++) {
         this.bricks[c] = [];
@@ -20,10 +22,10 @@ function createLadrillos(){
     }
 }
 }
-//Funcion que dibuja los ladrillos de la 3 fila 
+
 createLadrillos.prototype.drawLadrillos = function (){
     for(c=0; c<this.brickColumnCount; c++) {
-        for(r=2; r<this.brickRowCount; r++) {
+        for(r=0; r<this.brickRowCount; r++) {
             if(this.bricks[c][r].status == 1) {
             this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
             this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
@@ -31,42 +33,72 @@ createLadrillos.prototype.drawLadrillos = function (){
             this.bricks[c][r].y = this.brickY;
             ctx.beginPath();
             var img = new Image()  
-            img.src = "images/css.png";
+            img.src = "images/fragon.png";
             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
             ctx.closePath();
         }
     } 
-}   //Funcion que dibuja los ladrillos de la 2 fila
-    for(c=0; c<this.brickColumnCount; c++) {
-        for(r=1; r<this.brickRowCount-1; r++) {
-            if(this.bricks[c][r].status == 1) {
-            this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
-            this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
-            this.bricks[c][r].x = this.brickX;
-            this.bricks[c][r].y = this.brickY;
-            ctx.beginPath();
-            var img = new Image()  
-            img.src = "images/html.png";
-            ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
-            ctx.closePath();
-        }
-    } 
-}   //funcion que dibuja los ladrillos de la 1 fila
-    for(c=0; c<this.brickColumnCount; c++) {
-        for(r=0; r<this.brickRowCount-2; r++) {
-            if(this.bricks[c][r].status == 1) {
-            this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
-            this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
-            this.bricks[c][r].x = this.brickX;
-            this.bricks[c][r].y = this.brickY;
-            ctx.beginPath();
-            var img = new Image()  
-            img.src = "images/JS.jpeg";
-            ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
-            ctx.closePath();
-            }
-        } 
-    }
+}   
+//     for(c=0; c<this.brickColumnCount; c++) {
+//         for(r=3; r<this.brickRowCount-1; r++) {
+//             if(this.bricks[c][r].status == 1) {
+//             this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
+//             this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
+//             this.bricks[c][r].x = this.brickX;
+//             this.bricks[c][r].y = this.brickY;
+//             ctx.beginPath();
+//             var img = new Image()  
+//             img.src = "images/fragon.png";
+//             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+//             ctx.closePath();
+//         }
+//     } 
+// }   
+//     for(c=0; c<this.brickColumnCount; c++) {
+//         for(r=4; r<this.brickRowCount; r++) {
+//             if(this.bricks[c][r].status == 1) {
+//             this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
+//             this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
+//             this.bricks[c][r].x = this.brickX;
+//             this.bricks[c][r].y = this.brickY;
+//             ctx.beginPath();
+//             var img = new Image()  
+//             img.src = "images/fragon.png";
+//             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+//             ctx.closePath();
+//             }
+//         } 
+//     }
+//     for(c=0; c<this.brickColumnCount; c++) {
+//         for(r=1; r<this.brickRowCount-3; r++) {
+//             if(this.bricks[c][r].status == 1) {
+//             this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
+//             this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
+//             this.bricks[c][r].x = this.brickX;
+//             this.bricks[c][r].y = this.brickY;
+//             ctx.beginPath();
+//             var img = new Image()  
+//             img.src = "images/fragon.png";
+//             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+//             ctx.closePath();
+//             }
+//         } 
+//     }
+    // for(c=0; c<this.brickColumnCount; c++) {
+    //     for(r=0; r<this.brickRowCount-4; r++) {
+    //         if(this.bricks[c][r].status == 1) {
+    //         this.brickX = (c*(this.brickWidth+this.brickPadding))+this.brickOffsetLeft;
+    //         this.brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
+    //         this.bricks[c][r].x = this.brickX;
+    //         this.bricks[c][r].y = this.brickY;
+    //         ctx.beginPath();
+    //         var img = new Image()  
+    //         img.src = "images/fragon.png";
+    //         ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+    //         ctx.closePath();
+    //         }
+    //     } 
+    // }
 }
     //Metodo que provoca la colision
  createLadrillos.prototype.Colision= function (){
@@ -75,8 +107,7 @@ createLadrillos.prototype.drawLadrillos = function (){
             var b = this.bricks[c][r];
             if(b.status == 1) { 
                 if(bola.x > b.x && bola.x < b.x+this.brickWidth && bola.y > b.y && bola.y < b.y+this.brickHeight) {
-                    console.log(b.x);
-                    console.log(b.y);
+                    this.audio.play();
                     bola.dy = -bola.dy;
                     b.status = 0;
                     this.score++;
@@ -93,6 +124,16 @@ createLadrillos.prototype.drawLadrillos = function (){
                         bola.dx *=1.2;
                         barra.paddleWidth -=25;
 
+                    }
+                    if(this.score == 10){
+                        bola.dy*=1.6;
+                        bola.dx*=1.6;
+                        barra.paddleWidth +=50;
+                    }
+                    if(this.score == 20){
+                        bola.dy*=2;
+                        bola.dx*=2;
+                        barra.paddleWidth +=75;
                     }
                     
                     if(this.score == this.brickRowCount*this.brickColumnCount) {
