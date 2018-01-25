@@ -2,42 +2,95 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var barra = new createBarra();
 var bola = new createBall();
+var bola2 = new createBall();
 var brick = new createLadrillos();
-window.onload = function(){
-  document.getElementById("btn-start").onclick = function (){
+window.onload = function() {
+  document.getElementById("btn-start").onclick = function() {
     startGame();
-    document.getElementById('canvas').style.display = 'block';
+    document.getElementById("canvas").style.display = "block";
+  };
+
+
+  function Colision() {
+    for (c = 0; c < brick.brickColumnCount; c++) {
+      for (r = 0; r < brick.brickRowCount; r++) {
+        var b = brick.bricks[c][r];
+        if (b.status == 1) {
+          if (
+            bola.x > b.x &&
+            bola.x < b.x + brick.brickWidth &&
+            bola.y > b.y &&
+            bola.y < b.y + brick.brickHeight
+          ) {
+            brick.audio.play();
+            bola.dy = -bola.dy;
+            b.status = 0;
+            brick.score++;
+          
+           if (b.status == 0) {
+             ctx.beginPath();
+             var img = new Image();
+             img.src = "images/attack.gif";
+             ctx.drawImage(img,bola.x,bola.y,brick.brickWidth,brick.brickHeight);
+             ctx.closePath();
+           }
+          if (brick.score == 5) {
+            bola.dy *= 1.2;
+            bola.dx *=1.2;
+            barra.paddleWidth -=30 ;
+          }
+          if (brick.score == 10) {
+            bola.dy += 1.2;
+            bola.dx += 1.2;
+            barra.paddleWidth -= 10;
+          }
+          if (brick.score == 20) {
+            bola.dy *= 1.2;
+            bola.dx *= 1.2;
+            barra.paddleWidth -= 10;
+          }
+          if (brick.score == 40) {
+            barra.paddleWidth += 70;
+            bola.dy *= 1.4;
+            bola.dx *= 1.4;
+
+          }
+        }
+
+          if (brick.score == brick.brickRowCount * brick.brickColumnCount) {
+            alert("Felicidades!!! Has superado el juego...");
+            window.location.reload();
+          }
+          if (bola.y > canvas.height + 30) {
+            if (bola.firstOver == true) {
+              alert("Game Over");
+              bola.firstOver = false;
+            }
+
+            window.location.reload();
+          }
+        
+      }
+    }
+  }
+}
+  function draw(e) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    brick.drawLadrillos();
+    bola.drawBall();
+    barra.drawBarra();
+    Colision();
+    bola.reboteMargen();
+    bola.rebotePaddle();
+    barra.moveBarra();
+    drawScore();
+
+    bola.x += bola.dx;
+    bola.y += bola.dy;
+ 
   }
 
-function draw(e) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  brick.drawLadrillos();
-  bola.drawBall();
-  barra.drawBarra();
-  brick.Colision();
-  bola.reboteMargen();
-  bola.rebotePaddle();
-  barra.moveBarra();
-  bola.gameOver();
-  drawScore();
-
-  
-}
-
-function startGame(){
-setInterval(draw,1000/50)
-}
-
-
-
-  
-
-  
-
- 
-
-  
- 
-  
- 
+  function startGame() {
+    setInterval(draw, 1000 / 50);
+  }
 };

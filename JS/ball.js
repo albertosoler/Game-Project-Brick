@@ -5,18 +5,18 @@ function createBall() {
   this.dx = 5;
   this.dy = -5;
   this.firstOver=true;
-  this.sizex=20;
-  this.sizey=20;
+  this.sizex=15;
+  this.sizey=15;
           
   }
 
   createBall.prototype.drawBall = function() {
-     var img = new Image()  
+    var img = new Image()  
     img.src = "images/DragonBall.png";
-      ctx.drawImage(img, this.x, this.y, this.sizex,this.sizey);
+    ctx.drawImage(img, this.x, this.y, this.sizex,this.sizey);
      }
      createBall.prototype.reboteMargen = function (){
-      if (this.x + this.dx > canvas.width || this.x + this.dx < 0) {
+      if (this.x + this.dx > canvas.width-this.sizex || this.x + this.dx < 0) {
           this.dx = -this.dx;
         }
         else if(this.y +this.dy < 0) {
@@ -24,30 +24,18 @@ function createBall() {
       }
   }
   createBall.prototype.rebotePaddle = function (){
-        if(this.y + this.dy > canvas.height - barra.paddleHeight) {
+        if(this.y + this.dy > canvas.height - barra.paddleHeight-this.sizey) {
       
-          if(this.x > barra.paddleX && this.x < barra.paddleX + barra.paddleWidth) { //Rebote con el paddle
-              this.dy = -this.dy;
-              //this.dx= -this.dx;
+          if(this.x > barra.paddleX && this.x < barra.paddleX + barra.paddleWidth-this.sizex) { //Rebote con el paddle
+              this.dy = -this.dy  ;
+            
+              
+             
           }
 
       }
   }
-  createBall.prototype.gameOver = function (){
-    if(this.y >canvas.height + 100 ){
-        if(this.firstOver == true){
-          alert("Game Over");
-          this.firstOver = false;
-        }
-      
-     
-  
-        window.location.reload();
-        
-        
-        
-      } 
-}
+ 
     
   
  
