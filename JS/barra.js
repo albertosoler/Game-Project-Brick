@@ -23,10 +23,10 @@ createBarra.prototype.drawBarra= function(){
     }
  
 createBarra.prototype.moveBarra = function (){
-    if(barra.rightPressed && barra.paddleX < canvas.width-barra.paddleWidth) {
+    if(this.rightPressed && barra.paddleX < canvas.width-barra.paddleWidth) {
         barra.paddleX += 7;
       }
-      else if(barra.leftPressed && barra.paddleX > 0) {
+      else if(this.leftPressed && barra.paddleX > 0) {
         barra.paddleX -= 7;
       }
       

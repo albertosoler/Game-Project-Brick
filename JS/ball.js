@@ -24,9 +24,9 @@ function createBall() {
       }
   }
   createBall.prototype.rebotePaddle = function (){
-        if(this.y + this.dy > canvas.height - barra.paddleHeight-this.sizey) {
+        if(this.y > canvas.height - barra.paddleHeight-this.sizey) {
       
-          if(this.x > barra.paddleX && this.x < barra.paddleX + barra.paddleWidth-this.sizex) { //Rebote con el paddle
+          if(this.x + this.dx> barra.paddleX && this.x < barra.paddleX + barra.paddleWidth-this.sizex) { //Rebote con el paddle
               this.dy = -this.dy  ;
             
               

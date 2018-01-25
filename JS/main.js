@@ -37,9 +37,11 @@ window.onload = function() {
           if (brick.score == 5) {
             bola.dy *= 1.2;
             bola.dx *=1.2;
-            barra.paddleWidth -=30 ;
+            barra.paddleWidth -=10 ;
+            
+            
           }
-          if (brick.score == 10) {
+          if (brick.score == 3) {
             bola.dy += 1.2;
             bola.dx += 1.2;
             barra.paddleWidth -= 10;
@@ -47,7 +49,7 @@ window.onload = function() {
           if (brick.score == 20) {
             bola.dy *= 1.2;
             bola.dx *= 1.2;
-            barra.paddleWidth -= 10;
+            barra.paddleWidth -= 5;
           }
           if (brick.score == 40) {
             barra.paddleWidth += 70;
@@ -65,16 +67,17 @@ window.onload = function() {
             if (bola.firstOver == true) {
               alert("Game Over");
               bola.firstOver = false;
+              window.location.reload();
             }
 
-            window.location.reload();
+          
           }
         
       }
     }
   }
 }
-  function draw(e) {
+  function render(e) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     brick.drawLadrillos();
     bola.drawBall();
@@ -91,6 +94,6 @@ window.onload = function() {
   }
 
   function startGame() {
-    setInterval(draw, 1000 / 50);
+    setInterval(render, 1000 / 60);
   }
 };
