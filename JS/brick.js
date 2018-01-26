@@ -34,7 +34,7 @@ createLadrillos.prototype.drawLadrillos = function (){
             ctx.beginPath();
             var img = new Image()  
             img.src = "images/canvas.png";
-            ctx.drawImage(img, this.brickX+ Math.random(10) *3, this.brickY+ Math.random(10) *3, this.brickWidth, this.brickHeight);
+            ctx.drawImage(img, this.brickX+ Math.random(10) *2, this.brickY+ Math.random(10) *2, this.brickWidth, this.brickHeight);
             ctx.closePath();
         }
     } 
@@ -49,7 +49,7 @@ createLadrillos.prototype.drawLadrillos = function (){
              ctx.beginPath();
              var img = new Image()  
              img.src = "images/css.png";
-             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+             ctx.drawImage(img, this.brickX+ Math.random(10) *2, this.brickY+ Math.random(10) *2, this.brickWidth, this.brickHeight);
              ctx.closePath();
             }
         } 
@@ -64,7 +64,7 @@ createLadrillos.prototype.drawLadrillos = function (){
              ctx.beginPath();
              var img = new Image()  
              img.src = "images/html.png";
-             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+             ctx.drawImage(img, this.brickX+ Math.random(10) *2, this.brickY+ Math.random(10) *2, this.brickWidth, this.brickHeight);
              ctx.closePath();
             }
         } 
@@ -79,7 +79,7 @@ createLadrillos.prototype.drawLadrillos = function (){
              ctx.beginPath();
              var img = new Image()  
              img.src = "images/jquery.png";
-             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+             ctx.drawImage(img, this.brickX+ Math.random(10) *2, this.brickY+ Math.random(10) *2, this.brickWidth, this.brickHeight);
              ctx.closePath();
              }
          } 
@@ -94,7 +94,7 @@ createLadrillos.prototype.drawLadrillos = function (){
              ctx.beginPath();
              var img = new Image()  
              img.src = "images/JS.jpeg";
-             ctx.drawImage(img, this.brickX, this.brickY, this.brickWidth, this.brickHeight);
+             ctx.drawImage(img, this.brickX+ Math.random(10) *2, this.brickY+ Math.random(10) *2, this.brickWidth, this.brickHeight);
              ctx.closePath();
              }
          } 

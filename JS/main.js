@@ -45,7 +45,7 @@ window.onload = function() {
             if (brick.score == 10) {
               bola.dy *= 1.2;
               bola.dx *= 1.2;
-              barra.paddleWidth -= 10;
+              barra.paddleWidth -= 20;
             }
             if (brick.score == 20) {
               bola.dy += 1.1;
@@ -58,7 +58,7 @@ window.onload = function() {
               barra.paddleWidth -= 5;
             }
             if (brick.score == 40) {
-              barra.paddleWidth += 40;
+              barra.paddleWidth += 35;
               bola.dy *= 1.2;
               bola.dx *= 1.2;
             }
