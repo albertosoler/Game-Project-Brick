@@ -79,7 +79,7 @@ window.onload = function() {
       }
     }
   }
-  function render(e) {
+  function update(e) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     brick.drawLadrillos();
     bola.drawBall();
@@ -95,6 +95,6 @@ window.onload = function() {
   }
 
   function startGame() {
-    setInterval(render, 1000 / 60);
+    setInterval(update, 1000 / 60);
   }
 };
