@@ -1,6 +1,6 @@
 
 canvas {
-  /*background-image: url("images/express.jpg");*/
+  background-image: url("images/express.jpg");
   margin-top:40px;
   margin-bottom: 120px;
   margin-left:500px;
@@ -12,9 +12,10 @@ canvas {
 }
 
 body{
-  background-image: url("../../sunrise-1030591_960_720.jpg");
-  background-size: 110%;
+ 
 
+  background-image: url("images/express.jpg");
+  background-size: 120%;
 
 }
 #elements
@@ -32,6 +33,12 @@ body{
   left: 180px;
   top: 280px;
   position: absolute;
+
+}
+#btn-reset{
+  color:white;
+  font-family: cursive;
+  background: black;
 
 }
 

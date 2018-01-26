@@ -34,21 +34,25 @@ window.onload = function() {
              ctx.drawImage(img,bola.x,bola.y,brick.brickWidth,brick.brickHeight);
              ctx.closePath();
            }
-          if (brick.score == 10) {
+          if (brick.score == 5) {
             bola.dy *= 1.2;
             bola.dx *=1.2;
             barra.paddleWidth -=10 ;
             
             
           }
-
+          if (brick.score == 3) {
+            bola.dy += 1.2;
+            bola.dx += 1.2;
+            barra.paddleWidth -= 10;
+          }
           if (brick.score == 20) {
             bola.dy *= 1.2;
             bola.dx *= 1.2;
             barra.paddleWidth -= 5;
           }
           if (brick.score == 40) {
-            barra.paddleWidth += 50;
+            barra.paddleWidth += 70;
             bola.dy *= 1.4;
             bola.dx *= 1.4;
 
