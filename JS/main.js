@@ -48,8 +48,8 @@ window.onload = function() {
               barra.paddleWidth -= 20;
             }
             if (brick.score == 20) {
-              bola.dy += 1.1;
-              bola.dx += 1.1;
+              bola.dy *= 1.2;
+              bola.dx *= 1.2;
               barra.paddleWidth -= 5;
             }
             if (brick.score == 30) {
